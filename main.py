@@ -67,7 +67,7 @@ if nav == 'Summarize text':
                           ("I want to input some text", "I want to upload a file"))
     st.text('')
     
-    s_example = "Artificial Intelligence (AI) is the development of machines capable of performing tasks that typically require human intelligence, such as learning, reasoning, problem-solving, and decision-making. AI encompasses various subfields, including machine learning, where systems learn from data to make predictions or decisions without being explicitly programmed; natural language processing, which enables machines to understand and generate human language; and computer vision, which allows machines to interpret and analyze visual information from the world. AI applications are transforming industries like healthcare, finance, and transportation, driving innovations such as personalized medicine, autonomous vehicles, and advanced data analytics. As AI continues to evolve, it holds the potential to revolutionize the way we live and work, though it also raises ethical considerations around privacy, bias, and job displacement."
+    s_example = "Artificial Intelligence (AI) refers to the creation of machines that can perform tasks requiring human-like intelligence, including reasoning, learning, problem-solving, perception, and language understanding. AI spans various fields, the most prominent being machine learning, where systems use algorithms to analyze data, recognize patterns, and improve their performance over time without human intervention. Another key area is natural language processing (NLP), which allows machines to understand, interpret, and generate human language, enabling applications like chatbots, language translators, and virtual assistants. Computer vision is another significant AI component, giving machines the ability to interpret and understand visual information from the world, such as recognizing faces or detecting objects in images and videos. AI’s impact is vast, transforming industries from healthcare, where AI is aiding in disease diagnosis and personalized treatment plans, to transportation with autonomous vehicles, and finance through automated trading systems and fraud detection. As AI evolves, it brings significant advancements but also challenges, such as ethical concerns around data privacy, potential bias in algorithms, and the future of employment in an increasingly automated world. Nonetheless, AI holds the promise of revolutionizing countless sectors and improving efficiency, productivity, and innovation on a global scale."
     if source == 'I want to input some text':
         input_su = st.text_area("Use the example below or input your own text in English (between 1,000 and 10,000 characters)", value=s_example, max_chars=10000, height=330)
         
@@ -79,6 +79,7 @@ if nav == 'Summarize text':
                     time.sleep(2)
 
                     # TextRank Summarization
+                    nltk.download('punkt')
                     my_parser = PlaintextParser.from_string(input_su, Tokenizer('english'))
                     text_rank_summarizer = TextRankSummarizer()
                     text_rank_summary = text_rank_summarizer(my_parser.document, sentences_count=3)
