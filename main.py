@@ -12,6 +12,11 @@ from sumy.summarizers.text_rank import TextRankSummarizer
 from sumy.summarizers.lex_rank import LexRankSummarizer
 from io import StringIO
 
+
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('stopwords')
+
 # Page layout
 st.set_page_config(page_title="MultiNLP Suite", 
                    page_icon=":robot_face:",
@@ -79,7 +84,6 @@ if nav == 'Summarize text':
                     time.sleep(2)
 
                     # TextRank Summarization
-                    nltk.download('punkt')
                     my_parser = PlaintextParser.from_string(input_su, Tokenizer('english'))
                     text_rank_summarizer = TextRankSummarizer()
                     text_rank_summary = text_rank_summarizer(my_parser.document, sentences_count=3)
