@@ -1,10 +1,7 @@
-gensim
-deep_translator
-nltk
-pandas
-readtime
 streamlit
+time
+deep-translator
+nltk
+readtime
 textstat
-tokenizers
 sumy
-numpy
