@@ -1,0 +1,10 @@
+gensim
+googletrans
+nltk
+pandas
+readtime
+streamlit
+textstat
+tokenizers
+sumy
+numpy
